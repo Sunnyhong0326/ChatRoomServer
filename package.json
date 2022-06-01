@@ -1,0 +1,24 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon ./index.js --exec babel-node",
+    "test": "standard --fix && jest --force-exit --detectOpenHandles -u",
+    "cover": "jest --coverage --watchAll=false --force-exit -u",
+    "stan": "standard --fix"
+  },
+  "dependencies": {
+    "apollo-server": "^3.8.1",
+    "dotenv": "^16.0.1",
+    "graphql": "^16.5.0",
+    "mysql2": "^2.3.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.2",
+    "@babel/node": "^7.17.10",
+    "@babel/preset-env": "^7.18.2",
+    "nodemon": "^2.0.16"
+  }
+}
