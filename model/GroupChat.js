@@ -45,8 +45,8 @@ class AllUserGroupChat {
                 Insert into Messages(userId, roomId, message) values(${args.userId}, ${args.roomId}, '${args.text}');
             `
             const [rows, fields] = await conn.execute(query)
-    
-            return `Send message: ${args.text} successfully!`
+            
+            return rows
         } catch (err) {
             console.error(`[ERROR] AllUserGroupChat.sendMessage() :\n ${err}`)
         }
@@ -55,7 +55,7 @@ class AllUserGroupChat {
     static async getChatRoomMessages(conn, args) {
         try {
             const query = `
-                Select message From Messages Where roomId = ${args.roomId}  Order by sentAt Asc;
+                Select * From Messages Where roomId = ${args.roomId}  Order by sentAt Asc;
             `
             const [rows, fields] = await conn.execute(query)
         
