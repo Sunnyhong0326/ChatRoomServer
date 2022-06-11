@@ -21,3 +21,8 @@ create table RoomMembers(
     userId INT,
     roomId Int,
 );
+
+create table Friend(
+    userId INT,
+    friendId INT
+);

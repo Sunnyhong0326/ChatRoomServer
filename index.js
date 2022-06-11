@@ -7,8 +7,6 @@ import { WebSocketServer } from 'ws';
 import { useServer } from 'graphql-ws/lib/use/ws';
 import resolvers from './resolvers';
 import typeDefs from './schema';
-import { PubSub } from "graphql-subscriptions";
-
 
 // Create the schema, which will be used separately by ApolloServer and
 // the WebSocket server.

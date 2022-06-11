@@ -11,6 +11,27 @@ const resolvers = {
     Query: {
         getChatRoomMessages: async(_, args) => {
             return await AllUserGroupChat.getChatRoomMessages(connectPool, args)
+        },
+        getUserChatRoom: async(_, args) => {
+            return await AllUserGroupChat.getUserChatRoom(connectPool, args)
+        },
+        getUserByName: async(_, args) => {
+            return await AllUserGroupChat.getUserByName(connectPool, args)
+        },
+        getTask: async(_, args) => {
+            return await AllUserGroupChat.getTask(connectPool, args)
+        },
+        getInitialTasks: async(_, args) => {
+            return await AllUserGroupChat.getInitialTasks(connectPool, args)
+        },
+        getAllFriends: async(_, args) => {
+            return await AllUserGroupChat.getAllFriends(connectPool, args)
+        },
+        getUserById: async(_, args) => {
+            return await AllUserGroupChat.getUserNameById(connectPool, args)
+        },
+        getChatRoomName: async(_, args) => {
+            return await AllUserGroupChat.getChatRoomName(connectPool, args)
         }
     },
     Mutation: {
@@ -30,8 +51,12 @@ const resolvers = {
                 roomId: args.roomId,
                 message: args.text
             }})
-            console.log('ues')
             return `Send messages successfully!`
+        },
+        addFriend: async (_, args) => {
+            await AllUserGroupChat.addFriend(connectPool, args.userId, args.friendId)
+            await AllUserGroupChat.addFriend(connectPool, args.friendId, args.userId)
+            return 'Add friend successfully!'
         }
     }
 }
