@@ -10,7 +10,7 @@ const typeDefs = gql`
         roomName: String!
     }
     type User {
-        Id: ID!
+        userId: ID!
         userName: String!
     }
     type Message implements Timestamps {
@@ -37,13 +37,16 @@ const typeDefs = gql`
         Id: ID!,
         task: String!
     }
+    type Friend{
+        friendId: ID!
+    }
     type Query {
         getChatRoomMessages(roomId: ID!): [Message]
         getUserChatRoom(userId: ID!): [UserChatRoom]
         getUserByName(userName: String!): [User]
         getTask(Id: ID!): Task
         getInitialTasks(number: Int!):[Task]
-        getAllFriends(userId: ID!): [ID!]
+        getAllFriends(userId: ID!): [Friend]
         getUserById(userId: ID!): [User]
         getChatRoomName(roomId: ID!): String!
     }

@@ -12,14 +12,14 @@ create TABLE Messages(
 );
 
 create table AllUsers(
-    Id INT AUTO_INCREMENT PRIMARY KEY,
+    userId INT AUTO_INCREMENT PRIMARY KEY,
     userName VARCHAR(255) NOT NULL
 );
 
 create table RoomMembers(
     Id INT AUTO_INCREMENT PRIMARY KEY,
     userId INT,
-    roomId Int,
+    roomId Int
 );
 
 create table Friend(

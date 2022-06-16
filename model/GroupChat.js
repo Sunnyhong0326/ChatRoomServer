@@ -106,7 +106,7 @@ class AllUserGroupChat {
     static async getUserById(conn, args) {
         try {
             const query = `
-                Select * From AllUsers Where Id = ${args.userId};
+                Select * From AllUsers Where userId = ${args.userId};
             `
             const [rows, fields] = await conn.execute(query)
             
@@ -148,21 +148,21 @@ class AllUserGroupChat {
     static async getInitialTasks(conn, args) {
         try {
             const query = `
-                SELECT TOP ${args.number} * FROM Tasks;
+                SELECT * FROM Tasks Limit ${args.number} ;
             `
             const [rows, fields] = await conn.execute(query)
             
             console.log(rows)
             return rows
         }catch (err) {
-            console.error(`[ERROR] AllUserGroupChat.getUserByName() :\n ${err}`)
+            console.error(`[ERROR] AllUserGroupChat.getInitialTasks() :\n ${err}`)
         }
     }
 
     static async getAllFriends(conn, args) {
         try {
             const query1 = `
-                SELECT friendId FROM Friends Where userId = ${args.userId};
+                SELECT friendId FROM Friend Where userId = ${args.userId};
             `
             const [rows, fields] = await conn.execute(query1)
             

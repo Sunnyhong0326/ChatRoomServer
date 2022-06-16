@@ -6,7 +6,7 @@ const resolvers = {
     Subscription: {
         realTimeMessages: {
             subscribe :(_, args) => pubsub.asyncIterator([`ChatRoom${args.roomId} Messages`])
-        } 
+        }
     },
     Query: {
         getChatRoomMessages: async(_, args) => {
@@ -28,7 +28,7 @@ const resolvers = {
             return await AllUserGroupChat.getAllFriends(connectPool, args)
         },
         getUserById: async(_, args) => {
-            return await AllUserGroupChat.getUserNameById(connectPool, args)
+            return await AllUserGroupChat.getUserById(connectPool, args)
         },
         getChatRoomName: async(_, args) => {
             return await AllUserGroupChat.getChatRoomName(connectPool, args)
